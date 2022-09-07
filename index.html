@@ -55,7 +55,7 @@ createApp({
     <li v-for="todo in filteredTodos" :key="todo.id">
       <input type="checkbox" v-model="todo.done">
       <span :class="{ done: todo.done }">{{ todo.text }}</span>
-      <button @click="removeTodo(todo)">X</button>
+      <button>new add</button>
     </li>
   </ul>
   <button @click="hideCompleted = !hideCompleted">
