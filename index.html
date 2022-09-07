@@ -9,9 +9,12 @@
     <div id="app">
   <h1>To Do app</h1>
 </div>
+
 <script type="module">
-import { createApp } from 'vue'     
+import { createApp } from 'vue'
+
 let id = 0
+
 createApp({
   data() {
     return {
@@ -42,6 +45,7 @@ createApp({
   }
 }).mount('#app')
 </script>
+
 <div id="app">
   <form @submit.prevent="addTodo">
     <input v-model="newTodo"></form>
@@ -51,12 +55,14 @@ createApp({
     <li v-for="todo in filteredTodos" :key="todo.id">
       <input type="checkbox" v-model="todo.done">
       <span :class="{ done: todo.done }">{{ todo.text }}</span>
-      <button>new add</button>
+      <button @click="removeTodo(todo)">X</button>
     </li>
   </ul>
   <button @click="hideCompleted = !hideCompleted">
     {{ hideCompleted ? 'Show all' : 'Hide completed' }}
   </button>
+</div>    
+    
 </div>
  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js>"</script>
   </body>
