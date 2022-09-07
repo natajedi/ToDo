@@ -1,7 +1,9 @@
-<script>
+<script type="module">
+import { createApp } from 'vue'
+
 let id = 0
 
-export default {
+createApp({
   data() {
     return {
       newTodo: '',
@@ -29,12 +31,12 @@ export default {
       this.todos = this.todos.filter((t) => t !== todo)
     }
   }
-}
+}).mount('#app')
 </script>
 
-<template>
+<div id="app">
   <form @submit.prevent="addTodo">
-    <input v-model="newTodo" />
+    <input v-model="newTodo"></form>
     <button>Add Todo</button>
   </form>
   <ul>
@@ -47,10 +49,4 @@ export default {
   <button @click="hideCompleted = !hideCompleted">
     {{ hideCompleted ? 'Show all' : 'Hide completed' }}
   </button>
-</template>
-
-<style>
-.done {
-  text-decoration: line-through;
-}
-</style>
+</div>
